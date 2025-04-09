@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+}
+
+/* Menú lateral */
+.menu {
+    width: 180px;
+    background: linear-gradient(to bottom, #00bfff, #fff, #fffde7);
+    min-height: 100vh;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Contenido */
+.contenido {
+    flex-grow: 1;
+    padding: 20px;
+    max-width: calc(100% - 180px);
+}
+
+/* Presentación */
+.presentacion {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #e0f7fa, #fff);
+    border-radius: 10px 10px 0 0;
+}
+.frase-bonita {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 20px;
+}
+
+.presentacion h1 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.azul {
+    color: #007acc;
+}
+
+.arg-celeste {
+    color: #00bfff;
+    text-shadow: 1px 1px 3px #aaa;
+}
+
+.presentacion p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.btn-conocer {
+    display: inline-block;
+    background: #00bfff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-conocer:hover {
+    background: #0099cc;
+}
+
+/* Banner */
+.banner-completo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #00bfff, #fff, #00bfff);
+    position: relative;
+    height: 400px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.baner-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.baner-img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.sol {
+    width: 160px;
+    height: auto;
+    opacity: 0.12; /* más sutil y elegante */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.sol.izquierdo {
+    left: 10px;
+}
+
+.sol.derecho {
+    right: 10px;
+}
+
+/* Ofertas */
+.titulo-ofertas {
+    text-align: center;
+    font-size: 28px;
+    margin: 30px 0 20px;
+}
+
+.ofertas-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.ofertas-container {
+    display: flex;
+    animation: moverCiclo 30s linear infinite;
+    gap: 20px;
+}
+
+.card-container {
+    min-width: 200px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card .info {
+    padding: 10px;
+}
+
+.card .precio {
+    text-align: center;
+    font-weight: bold;
+    background: #ffcc00;
+    padding: 5px;
+}
+
+.card .descuento {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: crimson;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Sobre nosotros */
+.sobre-nosotros {
+    margin-top: 60px;
+    padding: 40px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.sobre-nosotros h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Animaciones */
+@keyframes moverCiclo {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
