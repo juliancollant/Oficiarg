@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OFICIARG</title>
@@ -10,6 +10,7 @@
 </head>
 <body>
 
+  <!-- Menú Lateral -->
   <aside class="menu-lateral">
     <h1 class="titulo-sitio">🇦🇷 OFICIARG</h1>
     <nav>
@@ -35,27 +36,29 @@
     </nav>
   </aside>
 
+  <!-- Contenido Principal -->
   <main>
-  <section class="presentacion" id="inicio">
-  <h2><span class="ofici">OFICI</span><span class="arg">ARG</span></h2>
-  <p>Conectamos a quienes necesitan trabajar con profesionales capacitados. Tu oficio, tu oportunidad. ¡Hacelo crecer con nosotros!</p>
-  <a href="#sobre-nosotros" class="boton-vermas">Conocé más sobre nosotros</a>
-</section>
-
-
-    <section class="banner-container">
-      <img src="imagenes/sol.png" alt="sol" class="sol">
-      <div class="banner">
-        <img src="imagenes/baner1.jpg" class="banner-img active" alt="Banner 1">
-        <img src="imagenes/baner2.jpg" class="banner-img" alt="Banner 2">
-        <img src="imagenes/baner3.jpg" class="banner-img" alt="Banner 3">
-      </div>
-      <img src="imagenes/sol.png" alt="sol" class="sol">
+    <section class="presentacion" id="inicio">
+      <h2><span class="ofici">OFICI</span><span class="arg">ARG</span></h2>
+      <p>Conectamos a quienes necesitan trabajar con profesionales capacitados. Tu oficio, tu oportunidad. ¡Hacelo crecer con nosotros!</p>
+      <a href="#sobre-nosotros" class="boton-vermas">Conocé más sobre nosotros</a>
     </section>
 
+    <!-- Banner -->
+    <section class="banner-container">
+  <img src="imagenes/sol.png" alt="sol" class="sol sol-izquierda"> <!-- Sol izquierdo -->
+  <div class="banner">
+    <img src="imagenes/baner1.jpg" class="banner-img active" alt="Banner 1">
+    <img src="imagenes/baner2.jpg" class="banner-img" alt="Banner 2">
+    <img src="imagenes/baner3.jpg" class="banner-img" alt="Banner 3">
+  </div>
+  <img src="imagenes/sol.png" alt="sol" class="sol sol-derecha"> <!-- Sol derecho -->
+</section>
+    <!-- Ofertas Relámpago -->
     <h2 class="titulo-ofertas">⚡ Ofertas Relámpago</h2>
     <section class="ofertas-relampago" id="ofertas-relampago"></section>
 
+    <!-- Formulario para trabajar con nosotros -->
     <section id="trabaja" class="formulario-trabajo" style="display:none;">
       <h3>Sumate a OFICIARG</h3>
       <form id="formulario">
@@ -69,19 +72,17 @@
       </form>
     </section>
 
-    <section id="resultado-oficio"></section>
+    <!-- Información sobre nosotros -->
     <section id="sobre-nosotros" class="sobre-nosotros">
-  <div class="caja-info">
-    <h2>Nuestra visión</h2>
-    <p>
-      En <strong>OFICIARG</strong> creemos en el valor del trabajo honesto, en las conexiones auténticas y en los oficios que hacen crecer nuestra comunidad. Queremos que tu oficio sea reconocido, tu talento sea apreciado y tus oportunidades se multipliquen. 💙<br><br>
-      Conectamos personas que necesitan trabajo con quienes buscan buenos profesionales capacitados. Porque en <strong>OFICIARG</strong> sabemos que el futuro se construye con manos trabajadoras.
-    </p>
-  </div>
-</section>
+      <div class="caja-info">
+        <h2>Nuestra visión</h2>
+        En OFICIARG, creemos en el poder del trabajo argentino como motor de cambio y crecimiento. Nuestra misión es conectar a los mejores profesionales de oficios con quienes los necesitan, fomentando una economía local más sólida y dinámica. Buscamos ofrecer soluciones rápidas, confiables y de calidad, garantizando un servicio excelente en cada rincón de la Argentina.<br><br>
+          Queremos ser el puente entre quienes brindan sus habilidades con dedicación y quienes buscan un trabajo bien hecho. Nos importa que cada cliente sienta no solo satisfacción, sino también el orgullo de apoyar el desarrollo de nuestra comunidad y economía.<br><br>
+          En OFICIARG, creemos en una Argentina más conectada, solidaria y trabajadora, donde cada oficio y cada profesional aporta a un futuro mejor para todos.
+      </div>
+    </section>
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-
