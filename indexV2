@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OFICIARG</title>
+  <link rel="icon" href="imagenes/ico.ico">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <aside class="menu-lateral">
+    <h1 class="titulo-sitio">🇦🇷 OFICIARG</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#">Oficios</a>
+          <ul id="lista-oficios"></ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Localidades</a>
+          <ul>
+            <li>Resistencia</li>
+            <li>Fontana</li>
+            <li>Barranqueras</li>
+            <li>Vilelas</li>
+            <li>Puerto Tirol</li>
+          </ul>
+        </li>
+        <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+        <li><a href="#trabaja" onclick="mostrarFormulario()">Trabajá con nosotros</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+  <section class="presentacion" id="inicio">
+  <h2><span class="ofici">OFICI</span><span class="arg">ARG</span></h2>
+  <p>Conectamos a quienes necesitan trabajar con profesionales capacitados. Tu oficio, tu oportunidad. ¡Hacelo crecer con nosotros!</p>
+  <a href="#sobre-nosotros" class="boton-vermas">Conocé más sobre nosotros</a>
+</section>
+
+
+    <section class="banner-container">
+      <img src="imagenes/sol.png" alt="sol" class="sol">
+      <div class="banner">
+        <img src="imagenes/baner1.jpg" class="banner-img active" alt="Banner 1">
+        <img src="imagenes/baner2.jpg" class="banner-img" alt="Banner 2">
+        <img src="imagenes/baner3.jpg" class="banner-img" alt="Banner 3">
+      </div>
+      <img src="imagenes/sol.png" alt="sol" class="sol">
+    </section>
+
+    <h2 class="titulo-ofertas">⚡ Ofertas Relámpago</h2>
+    <section class="ofertas-relampago" id="ofertas-relampago"></section>
+
+    <section id="trabaja" class="formulario-trabajo" style="display:none;">
+      <h3>Sumate a OFICIARG</h3>
+      <form id="formulario">
+        <input type="text" placeholder="Nombre" id="nombre" required>
+        <input type="number" placeholder="Edad" id="edad" required>
+        <input type="text" placeholder="Localidad" id="localidad" required>
+        <input type="text" placeholder="Oficio" id="oficio" required>
+        <input type="number" placeholder="Antigüedad (años)" id="antiguedad" required>
+        <input type="file" id="imagen" accept="image/*">
+        <button type="submit">Agregar</button>
+      </form>
+    </section>
+
+    <section id="resultado-oficio"></section>
+    <section id="sobre-nosotros" class="sobre-nosotros">
+  <div class="caja-info">
+    <h2>Nuestra visión</h2>
+    <p>
+      En <strong>OFICIARG</strong> creemos en el valor del trabajo honesto, en las conexiones auténticas y en los oficios que hacen crecer nuestra comunidad. Queremos que tu oficio sea reconocido, tu talento sea apreciado y tus oportunidades se multipliquen. 💙<br><br>
+      Conectamos personas que necesitan trabajo con quienes buscan buenos profesionales capacitados. Porque en <strong>OFICIARG</strong> sabemos que el futuro se construye con manos trabajadoras.
+    </p>
+  </div>
+</section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
