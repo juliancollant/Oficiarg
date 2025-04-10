@@ -1,157 +1,70 @@
-// Carrusel de Banner
-let banners = document.querySelectorAll(".banner-img");
-let bannerIndex = 0;
-
-function mostrarBanner() {
-  banners.forEach(b => b.classList.remove("active"));
-  banners[bannerIndex].classList.add("active");
-  bannerIndex = (bannerIndex + 1) % banners.length;
-}
-
-mostrarBanner();
-setInterval(mostrarBanner, 5000); // Cambiar cada 5 segundos
-
-// Funcionalidad de Ofertas Relámpago
-const oficios = [
-  "Gasista", "Electricista", "Carpintero", "Peluquero", "Cocinero", "Gomero", "Niñera", "Albañil", "Cerrajero", "Maquilladora"
-];
-
-const localidades = ["Resistencia", "Fontana", "Barranqueras", "Vilelas", "Puerto Tirol"];
-const trabajadores = [
-  { nombre: "Juan", oficio: "Gasista", localidad: "Resistencia", edad: 28, antiguedad: 5, imagen: "trabajador1.jpg" },
-  { nombre: "María", oficio: "Electricista", localidad: "Fontana", edad: 34, antiguedad: 8, imagen: "trabajador2.jpg" },
-  { nombre: "Pedro", oficio: "Cocinero", localidad: "Vilelas", edad: 30, antiguedad: 4, imagen: "trabajador3.jpg" },
-  { nombre: "Lucía", oficio: "Carpintero", localidad: "Barranqueras", edad: 40, antiguedad: 15, imagen: "trabajador4.jpg" },
-  { nombre: "Carlos", oficio: "Peluquero", localidad: "Resistencia", edad: 25, antiguedad: 3, imagen: "trabajador5.jpg" }
-];
-
-// Función para generar las ofertas y cargarlas en el carrusel
-function cargarOfertasRelampago() {
-  const contenedor = document.getElementById("ofertas-relampago");
-  const ofertas = trabajadores.slice(0, 5); // Limitar a 5 ofertas
-
-  // Crear el contenedor del carrusel
-  const carrusel = document.createElement('div');
-  carrusel.classList.add('ofertas-carrusel');
-  
-  // Generar las ofertas
-  ofertas.forEach(trabajador => {
-    const oferta = document.createElement('div');
-    oferta.classList.add('oferta');
-    oferta.innerHTML = `
-      <img src="imagenes/${trabajador.imagen}" alt="${trabajador.nombre}">
-      <h4>${trabajador.oficio}</h4>
-      <p>${trabajador.nombre}</p>
-      <p>${trabajador.localidad}</p>
-    `;
-    carrusel.appendChild(oferta);
-  });
-
-  // Añadir el carrusel al contenedor de ofertas
-  contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar
-  contenedor.appendChild(carrusel);
-}
-function cargarOfertasRelampago() {
-  const contenedor = document.getElementById("ofertas-relampago");
-  contenedor.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevas ofertas
-  const ofertas = trabajadores.slice(0, 5); // Limitar a 5 ofertas
-
-  // Crear el contenedor del carrusel
-  const carrusel = document.createElement('div');
-  carrusel.classList.add('ofertas-carrusel');
-  
-  // Generar las ofertas
-  ofertas.forEach(trabajador => {
-    const oferta = document.createElement('div');
-    oferta.classList.add('oferta');
-    oferta.innerHTML = `
-      <img src="imagenes/${trabajador.imagen}" alt="${trabajador.nombre}">
-      <h4>${trabajador.oficio}</h4>
-      <p>${trabajador.nombre}</p>
-      <p>${trabajador.localidad}</p>
-    `;
-    carrusel.appendChild(oferta);
-  });
-
-  // Añadir el carrusel al contenedor de ofertas
-  contenedor.appendChild(carrusel);
-}
-
-cargarOfertasRelampago();
-const carrusel = document.querySelector(".ofertas-carrusel");
-
-let isPaused = false;
-carrusel.addEventListener("click", () => {
-  if (!isPaused) {
-    // Detener el movimiento
-    carrusel.style.animationPlayState = "paused";
-    isPaused = true;
-  } else {
-    // Reanudar el movimiento
-    carrusel.style.animationPlayState = "running";
-    isPaused = false;
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  cargarOficios();
+  cargarOfertas();
+  iniciarCarrusel();
+  manejarMenu();
 });
 
-// Mostrar trabajadores por oficio
-function mostrarTrabajadoresPorOficio(oficio) {
-  const lista = trabajadores.filter(t => t.oficio === oficio);
-  const resultadoOficio = document.getElementById("resultado-oficio");
-  resultadoOficio.innerHTML = `
-    <h2>Trabajadores en el oficio de ${oficio}</h2>
-    <div class="lista-trabajadores">
-      ${lista.map(t => `
-        <div class="trabajador">
-          <img src="imagenes/${t.imagen}" alt="${t.nombre}">
-          <p><strong>${t.nombre}</strong></p>
-          <p>Edad: ${t.edad}</p>
-          <p>Antigüedad: ${t.antiguedad} años</p>
-          <p>Localidad: ${t.localidad}</p>
-        </div>
-      `).join("")}
-    </div>
-  `;
-}
-
-// Cargar la lista de oficios en el menú lateral
 function cargarOficios() {
-  const listaOficios = document.getElementById("lista-oficios");
+  const oficios = [
+    { nombre: 'Carpintero', trabajadores: 2 },
+    { nombre: 'Electricista', trabajadores: 3 },
+    { nombre: 'Gasista', trabajadores: 2 },
+    { nombre: 'Jardinero', trabajadores: 5 },
+    { nombre: 'Mecánico', trabajadores: 4 }
+  ];
+
+  const listaOficios = document.getElementById('lista-oficios');
   oficios.forEach(oficio => {
-    const li = document.createElement("li");
-    li.textContent = oficio;
-    li.addEventListener("click", () => mostrarTrabajadoresPorOficio(oficio));
+    const li = document.createElement('li');
+    li.textContent = `${oficio.nombre} (${oficio.trabajadores} trabajadores)`;
     listaOficios.appendChild(li);
   });
 }
 
-cargarOficios();
+function cargarOfertas() {
+  const ofertas = [
+    { imagen: 'imagenes/trabajador1.jpg', oficio: 'Carpintero', descuento: '10%' },
+    { imagen: 'imagenes/trabajador2.jpg', oficio: 'Electricista', descuento: '15%' },
+    { imagen: 'imagenes/trabajador3.jpg', oficio: 'Gasista', descuento: '5%' },
+    { imagen: 'imagenes/trabajador4.jpg', oficio: 'Jardinero', descuento: '20%' },
+    { imagen: 'imagenes/trabajador5.jpg', oficio: 'Mecánico', descuento: '25%' }
+  ];
 
-// Mostrar el formulario para agregar trabajadores
-function mostrarFormulario() {
-  document.getElementById("trabaja").style.display = "block";
+  const ofertasRelampago = document.getElementById('ofertas-relampago');
+  ofertas.forEach(oferta => {
+    const div = document.createElement('div');
+    div.classList.add('oferta');
+    
+    const img = document.createElement('img');
+    img.src = oferta.imagen;
+    img.alt = oferta.oficio;
+    
+    const texto = document.createElement('p');
+    texto.textContent = `${oferta.oficio} - ${oferta.descuento}`;
+    
+    div.appendChild(img);
+    div.appendChild(texto);
+    ofertasRelampago.appendChild(div);
+  });
 }
 
-// Agregar un nuevo trabajador
-document.getElementById("formulario").addEventListener("submit", function(e) {
-  e.preventDefault();
+function iniciarCarrusel() {
+  let idx = 0;
+  const imgs = document.querySelectorAll('.banner-img');
+  setInterval(() => {
+    imgs[idx].classList.remove('active');
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add('active');
+  }, 3000); // Cambiar cada 3 segundos
+}
 
-  const nombre = document.getElementById("nombre").value;
-  const edad = document.getElementById("edad").value;
-  const localidad = document.getElementById("localidad").value;
-  const oficio = document.getElementById("oficio").value;
-  const antiguedad = document.getElementById("antiguedad").value;
-  const imagenInput = document.getElementById("imagen").files[0];
+function manejarMenu() {
+  const dropdown = document.querySelectorAll('.dropdown');
+  dropdown.forEach((item) => {
+    item.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+  });
+}
 
-  const reader = new FileReader();
-  reader.onload = function() {
-    const imagen = reader.result;
-
-    trabajadores.push({ nombre, edad, localidad, oficio, antiguedad, imagen: imagen });
-    localStorage.setItem("trabajadores", JSON.stringify(trabajadores));
-    alert("¡Trabajador agregado!");
-  };
-
-  if (imagenInput) {
-    reader.readAsDataURL(imagenInput);
-  }
-});
