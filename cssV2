@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5faff;
+    color: #222;
+  }
+  
+  .menu-lateral {
+    position: fixed;
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #cceeff, #e6f7ff);
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .menu-lateral h1 {
+    font-size: 24px;
+    color: #007acc;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .menu-lateral nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-lateral nav ul li {
+    margin: 10px 0;
+    position: relative;
+  }
+  
+  .menu-lateral nav ul li a {
+    text-decoration: none;
+    color: #005577;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  
+  .menu-lateral nav ul li a:hover {
+    color: #0099cc;
+  }
+  
+  .menu-lateral .dropdown ul {
+    display: none;
+    list-style: none;
+    padding-left: 10px;
+  }
+  
+  .menu-lateral .dropdown:hover ul {
+    display: block;
+  }
+  
+  main {
+    margin-left: 240px;
+    padding: 20px;
+  }
+  
+  .presentacion {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .presentacion h2 {
+    font-size: 32px;
+    color: #0055aa;
+  }
+  
+  .presentacion p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .boton-vermas {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007acc;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  .banner-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* o el alto que necesites */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  
+  
+  .banner {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+  }
+  
+  .banner-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    object-fit: contain; /* muestra toda la imagen sin recorte */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .banner-img.activo {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .sol {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 0 8px #ffd700);
+  }
+  
+  .titulo-ofertas {
+    text-align: center;
+    color: #005599;
+    font-size: 28px;
+    margin: 30px 0 10px;
+    border-bottom: 2px solid #aee1ff;
+    display: inline-block;
+  }
+  
+  .ofertas-relampago {
+    text-align: center;
+    margin-top: 30px;
+    overflow: hidden; /* Ocultamos el desbordamiento */
+  }
+  
+  .ofertas-carrusel {
+    display: flex;
+    justify-content: flex-start; /* Alineamos las ofertas al inicio */
+    gap: 15px;
+    animation: moverOfertas 10s linear infinite; /* Reducir el tiempo de 15s a 10s para que sea más rápido */
+  }
+  
+  @keyframes moverOfertas {
+    0% {
+      transform: translateX(100%); /* Empieza fuera de la pantalla a la derecha */
+    }
+    100% {
+      transform: translateX(-100%); /* Desplaza hasta el final a la izquierda */
+    }
+  }
+  
+  .oferta {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 220px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .oferta img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .formulario-trabajo {
+    margin-top: 40px;
+    background: #eaf6ff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .formulario-trabajo h3 {
+    margin-bottom: 15px;
+    color: #0055aa;
+  }
+  
+  .formulario-trabajo input,
+  .formulario-trabajo button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #aaddff;
+    border-radius: 6px;
+  }
+  
+  .sobre-nosotros {
+    background: #f0faff;
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+    text-align: center;
+  }
+  
+  .sobre-nosotros .caja-info {
+    max-width: 800px;
+    margin: auto;
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+    font-size: 24px;
+    line-height: 1.8;
+    color: #333;
+  }
+  
+  .sobre-nosotros h2 {
+    font-size: 36px; /* Grande y llamativa */
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .sobre-nosotros p {
+    font-size: 20px; /* Un tamaño adecuado */
+    color: #444;
+    font-weight: 400;
+  }
+  .ofici {
+    color: rgb(0, 0, 0);
+  }
+  
+  .arg {
+    color: #00bfff; /* Celeste */
+    text-shadow: 1px 1px 5px #333;
+  }
